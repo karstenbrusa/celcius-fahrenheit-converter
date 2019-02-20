@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- saved from url=(0117)http://faculty.cascadia.edu/mpanitz/Courses/BIT116/Lectures/Lecture_110_RadioButtons/Examples/radio_buttons_demo.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>jQuery Template</title>
+<script type="text/javascript" src="./radioButtonsA_files/jquery.min.js"></script>
+<script type="text/javascript">
+  if (typeof jQuery == 'undefined') {
+  document.write(unescape("%3Cscript src='../../Shared/jquery-1.11.3.js' type='text/javascript'%3E%3C/script%3E")); }
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+       $("#getFeedback").click( function() {
+			var whichOne = $('input:radio[name=tellTemp]:checked').val();
+			var num = $("#yourNum").val();
+           var Cel = (((num - 32)/ 0.5556));
+           var Far = (((num * 0.5556)+ 32));
+           if ( whichOne === undefined ) 
+                $("#msgHere").html("You're wasting my time and your time dumb person...tisk tisk");
+           else if( whichOne === "Fer" ) 
+	       		$("#msgHere").html( Cel + " Degrees Celcius");
+          else if( whichOne === "Cels" )
+	       		$("#msgHere").html( Far + " Degrees Fahrenheit");
+          });
+    });
+</script>
+</head>
+<body>
+<form> 
+<h3>What is the initial temprature Fahrenheit or Celcius</h3> 
+<p>
+<p>Enter your temp in F or C<br> <input type="text" id="yourNum"> <br>
+Fahrenheit<input type="radio" name="tellTemp" value="Fer"><br>
+Celcius<input type="radio" name="tellTemp" value="Cels">  
+<br>
+<input type="button" id="getFeedback" value="Click here for the conversion!">
+</p>
+</form>
+<p id="msgHere"></p>
+</body></html>
